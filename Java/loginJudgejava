@@ -1,0 +1,125 @@
+package login1;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
+import com.mysql.jdbc.Statement;
+
+/**
+ * Servlet implementation class la
+ */
+@WebServlet("/la")
+public class la extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public la() {
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String t = request.getParameter("actor");
+		response.setContentType("text/html;charset=UTF-8;pageEncoding=UTF-8");
+		PrintWriter out=response.getWriter();
+		out.println("<html>");
+		out.println("<body>");
+		switch(t) {
+		case "1":
+			try {
+				String url = "jdbc:mysql://localhost:3306/work41";
+				String userName = "root";
+				String password = "kamisama";
+					Connection con;
+					Statement sql;
+					Statement sql1;
+					String driverName1 = "com.mysql.jdbc.Driver";
+					String a = request.getParameter("username");
+					String b = request.getParameter("password");
+					String strSql1 = "select adminid from admin1 where adminid='"+a+"'";
+					String strSql2 = "select password from admin1 where adminid='"+a+"'";
+					ResultSet rs;
+					ResultSet rs1;
+				Class.forName(driverName1);
+	        con =  (Connection) DriverManager.getConnection(url, userName, password); 
+	        sql=(Statement) con.createStatement();
+	        sql1=(Statement) con.createStatement();
+	    	rs=sql.executeQuery(strSql1);
+	    	rs1=sql1.executeQuery(strSql2);
+        	if(rs.next()&&rs1.next()&&a.equals(rs.getString("adminid"))&&b.equals(rs1.getString("password"))){
+	        		response.sendRedirect("index.html?pram_xh="+rs.getString("adminid")+"");
+	        	}
+	        	else{
+	        		response.sendRedirect("login.html");
+	        	}
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+		}
+			break;
+	
+		
+		case "2":
+			try {
+				String url = "jdbc:mysql://localhost:3306/work41";
+				String userName = "root";
+				String password = "kamisama";
+					Connection con;
+					Statement sql;
+					Statement sql1;
+					String driverName1 = "com.mysql.jdbc.Driver";
+					String a = request.getParameter("username");
+					String b = request.getParameter("password");
+					String strSql1 = "select userid from infor41 where userid="+a;
+					String strSql2 = "select password1 from infor41 where userid="+a;
+					ResultSet rs;
+					ResultSet rs1;
+				Class.forName(driverName1);
+	        con =  (Connection) DriverManager.getConnection(url, userName, password); 
+	        sql=(Statement) con.createStatement();
+	        sql1=(Statement) con.createStatement();
+	    	rs=sql.executeQuery(strSql1);
+	    	rs1=sql1.executeQuery(strSql2);
+        	if(rs.next()&&rs1.next()&&a.equals(rs.getString("userid"))&&b.equals(rs1.getString("password1"))){
+	        		response.sendRedirect("index1.jsp?pram_xh="+rs.getString("userid")+"");
+	        	}
+	        	else{
+	        		response.sendRedirect("login.html");
+	        	}
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+		}
+			break;
+			
+		
+		}
+		}
+		
+	
+}

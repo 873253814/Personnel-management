@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+ <style type="text/css">
+            #input{     
+				width: 60%;
+				height: 22px;
+				padding: 6px 12px;
+				font-size: 14px;
+				color: #555;
+				background-color: #fff;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+            }
+			#iput{
+			width:80px;
+			height:20px;
+			border-radius:10px;
+			}
+  </style>
+ </head>
+ <body>
+ <form action="userinsert.jsp"  method="post">
+  <center>
+  <table>
+<tr><td><font size="4" face="微软雅黑">员工工号</font></td><td><input type="text" id="input" name="userid" ></td></tr>
+<tr><td><font size="4" face="微软雅黑">员工姓名</font></td><td><input type="text" id="input" name="username" ></td></tr>
+<tr><td><font size="4" face="微软雅黑">出生年月</font></td><td><input type="date" id="input" name="birth"></td></tr>
+<tr><td><font size="4" face="微软雅黑">籍贯</font></td><td><input type="text" id="input" name="address" ></td></tr>
+<tr><td><font size="4" face="微软雅黑">性别</font></td>	<td><select name="sex"   size="1">
+	<option value="男">男</option>
+	<option value="女">女</option>
+	</select></tr>
+<tr><td><font size="4" face="微软雅黑">身份证号码</font></td><td><input type="text" id="input" name="idcard" ></td></tr>
+<tr><td><font size="4" face="微软雅黑">联系电话</font></td><td><input type="text" id="input" name="phone" ></td></tr>
+<tr><td><font size="4" face="微软雅黑">入职时间</font></td><td><input type="date" id="input" name="intime" ></td></tr>
+<tr><td><font size="4" face="微软雅黑">职位</font></td><td><input type="text" id="input" name="position" ></td></tr>
+<tr><td><input type="submit" value="提交" id="iput"></td>
+<td><input type="reset" value="重置" id="iput"></td></tr>
+<tr><td><input type="button" value="返回" id="iput" onclick="location.href="></td></tr>
+</center>
+</form>
+ </body>
+</html>

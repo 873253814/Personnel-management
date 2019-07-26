@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+            #input{
+                display: block;       
+				width: 30%;
+				height: 22px;
+				padding: 6px 12px;
+				font-size: 14px;
+				color: #555;
+				background-color: #fff;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+            }
+			#iput{
+			width:100px;
+			height:33px;
+			border-radius:10px;
+			}
+  </style>
+   <style type="text/css">
+        #img {  
+        z-index:-1;  /*使背景图片置底显示*/
+        position:absolute;/*将背景图片设置成 absolute（绝对定位），使其显示于文档流之下，不占有文档流空间*/  
+        width:100%;  
+        height:100%;  8
+}  
+    </style>
+</head>
+<body>
+<IMG src="2.jpg" id="img"></IMG>
+ <form action="la"  method="post">
+  <center>
+  <br><br><br><br><br><br><br><br><<br><br><br><br><br>
+<font size="4" face="微软雅黑">用户名</font><input type="text" id="input" name="user"  required="required">
+<font size="4" face="微软雅黑">密码</font><input type="password" id="input" name="password"  required="required">
+<input type="submit" value="提交" id="iput">
+<input type="reset" value="重置" id="iput">
+<br>
+<input type="radio" name="actor" value="1"><font size="4" face="微软雅黑">经理</font>
+<input type="radio"name="actor" value="2"><font size="4" face="微软雅黑">员工</font>
+	</center>
+	</form>
+</body>
+</html>
